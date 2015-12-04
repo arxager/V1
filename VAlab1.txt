@@ -1,0 +1,59 @@
+<html>
+<head/>
+<body>
+<canvas id='less01' width='320' height='480'>
+           <script>
+                var canvas = document.getElementById('less01');
+                var ctx = canvas.getContext('2d');
+             
+                var k=1;
+                for (j=0; j<10; j++) {
+			var delta = 0;
+			var y = 0;
+			for (i=0; i<100; i++)
+				{
+				if(delta >= 5) {
+					y += 1;
+					delta -= 10;
+						}
+			delta += j;
+			ctx.fillRect(k*i,y*k,k,k);
+		}
+		}
+                
+                ctx.restore;
+           </script>  
+</canvas>
+	<canvas id='less01.1' width='160' height='240'>
+           <script>
+		
+                var canvas = document.getElementById('less01.1');
+		var ctx = canvas.getContext('2d');
+		var dfs = 6, dfd = -202;
+		var F= -103;
+		var x=-53, y=0;
+		var x0=53, y0=53;
+		ctx.fillStyle='#00AA00';
+		while(x+y<=0) {
+			ctx.fillRect(x0+x, y0+y, 1, 1);
+			ctx.fillRect(x0-x, y0+y, 1, 1);
+          		ctx.fillRect(x0+y, y0-x, 1, 1);
+			ctx.fillRect(x0-y, y0-x, 1, 1);
+			ctx.fillRect(x0+x, y0-y, 1, 1);
+			ctx.fillRect(x0-x, y0-y, 1, 1);
+			ctx.fillRect(x0+y, y0+x, 1, 1);
+			ctx.fillRect(x0-y, y0+x, 1, 1);
+			if(F>0){
+				x++;
+				F+=dfd;
+				dfd+=4;
+			}
+				else{ F+=dfs;}
+			dfd+=4;
+			dfs+=4;
+			y++;
+  }
+           </script>  
+</canvas>	
+</body>
+</html>
